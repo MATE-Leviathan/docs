@@ -14,6 +14,9 @@ laptop's container.
   already flashed, and the cameras connected.
 - The Jetson user has permission to access the Pico's serial device.
 
+For firmware upload and standalone hardware tests, see
+[Pico W thruster control](pico-w-thruster-control.md).
+
 ## Connect and build
 
 From the laptop, use the Jetson's current address and username:
