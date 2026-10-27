@@ -83,6 +83,33 @@ The upload and diagnostics commands check the schema and PWM conflicts before
 running. Unknown fields are rejected. Keep servo `min <= end <= max` and pulse
 `min < max`; these ordering rules are not checked by the schema.
 
+## Robot wiring
+
+The `drivetrain_node` expects six thrusters on these GPIOs. A `rov.json` for the
+robot, in the same format as above:
+
+```json
+{
+  "thruster_neutral": 0.5,
+  "thruster_pulse_ms": { "min": 1.1, "max": 1.9 },
+  "servo_pulse_ms": { "min": 0.7, "max": 2.2 },
+  "thrusters": {
+    "back_left": { "pin": 0 },
+    "middle_right": { "pin": 1 },
+    "front_right": { "pin": 2 },
+    "middle_left": { "pin": 3 },
+    "back_right": { "pin": 6 },
+    "front_left": { "pin": 7 }
+  }
+}
+```
+
+The drivetrain sends one line per thruster in the form `z<GPIO><value>x`, for
+example `z0000.50x` for GP0 at neutral, with the value running from `0.00` to
+`1.00`. Your firmware must accept this format. Servos and the actuator use the
+same format from [auxiliary control](auxiliary-control.md), which runs on a
+separate Pico, so its GPIOs can overlap with the thruster Pico's.
+
 ## Upload and test
 
 From the `pico-w-thruster-control` repository folder:

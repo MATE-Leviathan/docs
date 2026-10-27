@@ -7,5 +7,5 @@
 | Adafruit BNO055 9-axis IMU | Orientation, internal temp | I2C, `0x28` | `imu_publisher`, `internal_temp/` script | Common |
 | ADS1115 ADC | pH, TDS, turbidity probe voltages | I2C, `0x48` | `sensor_bringup`, `ph_pub` | Research |
 | Blue Robotics Sonoptix Echo | Imaging sonar | Ethernet (RTSP) | `sonoptix_sonar` (submodule) | Research |
-| Thrusters | Propulsion | Pico W, USB serial | `controller_node` (`drivetrain_node`) | |
-| Servos | Actuation | Pico W, USB serial | `controller_node` (`auxiliary_control`) | |
+| Thrusters (6) | Propulsion | Pico W, USB serial | `controller_node` (`drivetrain_node`); see [Driving the robot](driving.md) | |
+| Servos | Actuation | Pico W, USB serial | `controller_node` (`auxiliary_control`); see [Auxiliary control](auxiliary-control.md) | |
